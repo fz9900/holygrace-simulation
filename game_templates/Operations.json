@@ -1,0 +1,145 @@
+{
+      "team_name": "operations",
+      "admin_password": "admin",
+      "play_password": "play",
+      "weeks": 45,
+      "expiry": 0.0417,
+      "turn_time": 180,
+      "script": [
+                  {"week":1,"msg":"Welcome to XSG! Please take time to familiarize yourself with the game interface. Starting next turn, you'll have 3 minutes to make your decisions."},
+                  {"week":2,"msg":"Consider your inventory, backorders, deliveries, and POs in deciding your orders to suppliers and shipments to customers."},
+                  {"week":10,"msg":"Now that XSG's interface feels familiar, try to improve your performance. Check your metrics on the top right side, can you do better?"},
+                  {"week":11,"msg":"Want more details on how metrics are calculated? Check the 'Show game info' link on the top left side."},
+                  {"week":45,"msg":"Congradulations! You are about to complete your demo game. Remember you can review your performance from the advanced menu using your game number as the admin password."}
+                ],
+      "demands": [{
+                  "name": "client1",
+                  "demand": [4, 4, 4, 4, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8]
+            },
+            {
+                  "name": "client2",
+                  "demand": [4, 4, 4, 4, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8]
+            }
+      ],
+      "stations": [{
+                  "name": "retailer1",
+                  "player_name": "cpu",
+                  "auto_decide_ship_qty": true,
+                  "auto_decide_order_qty": true,
+                  "holding_cost": 1,
+                  "backorder_cost": 2,
+                  "transport_cost": 5,
+                  "transport_size": 5,
+                  "delay_shipping": 2,
+                  "delay_ordering": 2,
+                  "initial_queue_quantity": 4,
+                  "initial_inventory": 4,
+                  "safety_stock": 0,
+                  "order_min": [],
+                  "order_max": [],
+                  "ship_min": [],
+                  "ship_max": []
+            },
+            {
+                  "name": "retailer2",
+                  "player_name": "cpu",
+                  "auto_decide_ship_qty": true,
+                  "auto_decide_order_qty": true,
+                  "holding_cost": 1,
+                  "backorder_cost": 2,
+                  "transport_cost": 5,
+                  "transport_size": 5,
+                  "delay_shipping": 2,
+                  "delay_ordering": 2,
+                  "initial_queue_quantity": 4,
+                  "initial_inventory": 4,
+                  "safety_stock": 0,
+                  "order_min": [],
+                  "order_max": [],
+                  "ship_min": [],
+                  "ship_max": []
+            },
+            {
+                  "name": "wholesaler",
+                  "player_name": "DemoPlayer",
+                  "auto_decide_ship_qty": false,
+                  "auto_decide_order_qty": false,
+                  "holding_cost": 1,
+                  "backorder_cost": 2,
+                  "transport_cost": 5,
+                  "transport_size": 5,
+                  "delay_shipping": 2,
+                  "delay_ordering": 2,
+                  "initial_queue_quantity": 4,
+                  "initial_inventory": 4,
+                  "safety_stock": 0,
+                  "order_min": [],
+                  "order_max": [],
+                  "ship_min": [],
+                  "ship_max": []
+            },
+            {
+                  "name": "manufacturer1",
+                  "player_name": "cpu",
+                  "auto_decide_ship_qty": true,
+                  "auto_decide_order_qty": true,
+                  "holding_cost": 1,
+                  "backorder_cost": 2,
+                  "transport_cost": 5,
+                  "transport_size": 5,
+                  "delay_shipping": 2,
+                  "delay_ordering": 2,
+                  "initial_queue_quantity": 4,
+                  "initial_inventory": 4,
+                  "safety_stock": 0,
+                  "order_min": [],
+                  "order_max": [],
+                  "ship_min": [],
+                  "ship_max": []
+            },
+            {
+                  "name": "manufacturer2",
+                  "player_name": "cpu",
+                  "auto_decide_ship_qty": true,
+                  "auto_decide_order_qty": true,
+                  "holding_cost": 1,
+                  "backorder_cost": 2,
+                  "transport_cost": 5,
+                  "transport_size": 5,
+                  "delay_shipping": 2,
+                  "delay_ordering": 2,
+                  "initial_queue_quantity": 4,
+                  "initial_inventory": 4,
+                  "safety_stock": 0,
+                  "order_min": [],
+                  "order_max": [],
+                  "ship_min": [],
+                  "ship_max": []
+            }
+      ],
+      "connections": [{
+                  "supp": "retailer1",
+                  "cust": "client1"
+            },
+            {
+                  "supp": "retailer2",
+                  "cust": "client2"
+            },
+            {
+                  "supp": "wholesaler",
+                  "cust": "retailer1"
+            },
+            {
+                  "supp": "wholesaler",
+                  "cust": "retailer2"
+            },
+            {
+                  "supp": "manufacturer1",
+                  "cust": "wholesaler"
+            },
+            {
+                  "supp": "manufacturer2",
+                  "cust": "wholesaler"
+            }
+      ]
+}

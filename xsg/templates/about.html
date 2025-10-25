@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block body %}
+  <table>
+    <tr>
+      <td>
+        <div class=about>
+          <table>
+            <tr>
+              <td class=about_a>ABOUT HSG</td>
+              <td class=about_b>The Holy Grace SupplyChain Game (HSG) is an educational simulation game designed to
+                help participants explore the dynamics of real supply chains. The game is a
+                team-based multi-player online simulation where each player take on the
+                role of managing a virtual station in a simple supply chain. The game is
+                played in turns, in which players analyze weekly standing of their stations
+                and decide on orders to suppliers and shipments to customers. At the end of
+                the game, individual and team performances are analyzed and discussed in groups.<br>
+                HSG is influenced by previous supply chain management games, such as
+                the beer game and the wood supply game, but it introduces several new
+                concepts, including: configurable supply chain design, ordering and shipping capacities,
+                triple-bottom-line objective, and transportation environmental and monetary impacts.
+                The HSG name comes from the game ability to be configured in various supply chain designs,
+                allowing it to model almost any supply chain.
+              </td>
+            </tr>
+        <div class="vertical-menu">
+          <a href="{{ url_for('index') }}">Go to HSG main menu</a>
+        </div>
+      </td>
+      <td class=logo_large_cell>
+        <img class=logo_large src="{{ url_for('static', filename='xsg.png') }}" alt="XSG">
+      </td>
+    </tr>
+  </table>
+{% endblock %}
