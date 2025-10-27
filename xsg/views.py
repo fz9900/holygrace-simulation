@@ -93,16 +93,29 @@ def save_games_state():
 
 
 def load_games_state():
-    if os.path.isfile(app.config['GameStatusData']):
-        with open(app.config['GameStatusData'],'rb') as f:
-            GAMES.clear()
-            GAMES.update(pickle.load(f))
-            kill_expired_games()
-            log_msg('   loaded previous game state file: ' + app.config['GameStatusData'])
-            return True
+    file_path = app.config['GameStatusData']
+
+    if os.path.isfile(file_path):
+        try:
+            if os.path.getsize(file_path) > 0:  # ensure file is not empty
+                with open(file_path, 'rb') as f:
+                    GAMES.clear()
+                    GAMES.update(pickle.load(f))
+                    kill_expired_games()
+                    log_msg('   ✅ Loaded previous game state file: ' + file_path)
+                    return True
+            else:
+                log_msg('   ⚠️ Game state file is empty: ' + file_path)
+        except Exception as e:
+            log_msg(f'   ⚠️ Could not load game state: {e}. Starting fresh.')
     else:
-        log_msg('   previous game state file not found: ' + app.config['GameStatusData'])
+        log_msg('   ⚠️ Previous game state file not found: ' + file_path)
+
+    # fallback: start clean if anything fails
+    GAMES.clear()
+    log_msg('   ℹ️ Starting new game state.')
     return False
+
 
 
 # loading previous server game state data if existing
